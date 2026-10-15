@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoção de Animais</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8f0;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        header {
+            background-color: #f3d5b5;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #754c24;
+            margin-bottom: 10px;
+        }
+
+        .acessibilidade {
+            text-align: right;
+            padding: 10px 20px;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+        }
+
+        .acessibilidade button {
+            background-color: #754c24;
+            color: white;
+            margin-left: 5px;
+        }
+
+        .inicio {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .inicio h2 {
+            font-size: 30px;
+            color: #754c24;
+            margin-bottom: 15px;
+        }
+
+        .animais {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .animal {
+            background-color: white;
+            width: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 10px #00000015;
+        }
+
+        .animal img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .animal h3 {
+            padding: 15px;
+            color: #754c24;
+        }
+
+        .formulario {
+            background-color: white;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px #00000015;
+        }
+
+        .formulario h2 {
+            text-align: center;
+            color: #754c24;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .enviar {
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            background-color: #b86b43;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .enviar:hover {
+            background-color: #925032;
+        }
+
+        footer {
+            background-color: #f3d5b5;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* Modo de alto contraste */
+        .contraste {
+            background-color: black;
+            color: white;
+        }
+
+        .contraste header,
+        .contraste footer {
+            background-color: #222;
+            color: white;
+        }
+
+        .contraste h1,
+        .contraste h2,
+        .contraste h3 {
+            color: yellow;
+        }
+
+        .contraste .animal,
+        .contraste .formulario {
+            background-color: #111;
+            color: white;
+        }
+
+        .contraste input,
+        .contraste select,
+        .contraste textarea {
+            background-color: #222;
+            color: white;
+            border: 1px solid white;
+        }
+
+        @media (max-width: 600px) {
+            .inicio h2 {
+                font-size: 25px;
+            }
+
+            .formulario {
+                margin: 20px;
+            }
+
+            .animal {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1> Adoção de Animais</h1>
+        <p>Encontre seu novo melhor amigo!</p>
+    </header>
+
+    <div class="acessibilidade">
+        <button onclick="mudarFonte(2)">A+</button>
+        <button onclick="mudarFonte(-2)">A-</button>
+        <button onclick="altoContraste()">Alto Contraste</button>
+    </div>
+
+    <section class="inicio">
+        <h2>Escolha um amigo para a vida </h2>
+        <p>Adotar é um ato de amor. Dê uma chance para um animal ser feliz!</p>
+    </section>
+
+    <section class="animais">
+
+        <div class="animal">
+            <img
+                src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=700&q=80"
+                alt="Cachorro fofo">
+            <h3> Cachorro</h3>
+        </div>
+
+        <div class="animal">
+            <img
+                src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=700&q=80"
+                alt="Gato fofo">
+            <h3> Gato</h3>
+        </div>
+
+    </section>
+
+    <section class="formulario">
+        <h2>Quero adotar!</h2>
+
+        <form id="formAdocao">
+
+            <label for="nome">Seu nome:</label>
+            <input type="text" id="nome" name="nome"
+                   placeholder="Digite seu nome" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone"
+                   placeholder="(00) 00000-0000" required>
+
+            <label for="animal">Qual animal você quer?</label>
+            <select id="animal" name="animal" required>
+                <option value="">Escolha</option>
+                <option value="Cachorro">Cachorro</option>
+                <option value="Gato">Gato</option>
+            </select>
+
+            <label for="motivo">Por que quer adotar?</label>
+            <textarea id="motivo" name="motivo" rows="4"
+                      placeholder="Conte um pouco sobre o motivo..."
+                      required></textarea>
+
+            <button type="submit" class="enviar">
+                QUERO ADOTAR
+            </button>
+
+        </form>
+
+        <p id="mensagem" style="text-align:center; margin-top:15px;"></p>
+    </section>
+
+    <footer>
+        <p>🐾 Adoção de Animais</p>
+        <p>Adote com amor, cuide para sempre!</p>
+        <p>Projeto escolar de conscientização animal.</p>
+    </footer>
+
+    <script>
+        // Aumenta ou diminui o tamanho das letras
+        let tamanhoFonte = 16;
+
+        function mudarFonte(valor) {
+            tamanhoFonte += valor;
+
+            if (tamanhoFonte < 10) {
+                tamanhoFonte = 10;
+            }
+
+            if (tamanhoFonte > 28) {
+                tamanhoFonte = 28;
+            }
+
+            document.body.style.fontSize = tamanhoFonte + "px";
+        }
+
+        // Ativa ou desativa o alto contraste
+        function altoContraste() {
+            document.body.classList.toggle("contraste");
+        }
+
+        // Verifica o formulário
+        document.getElementById("formAdocao").addEventListener(
+            "submit", function(event) {
+                event.preventDefault();
+
+                let nome = document.getElementById("nome").value;
+                let animal = document.getElementById("animal").value;
+
+                document.getElementById("mensagem").textContent =
+                    "Obrigado, " + nome +
+                    "! Seu interesse em adotar um(a) " +
+                    animal + " foi registrado nesta demonstração. ❤️";
+
+                this.reset();
+            }
+        );
+    </script>
+
+</body>
+</html>
